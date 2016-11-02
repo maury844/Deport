@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#203588"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/header">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/upb"
+            android:id="@+id/imageView"
+            android:padding="10dp"
+            android:scaleX="1"
+            android:scaleY="1" />
+
+        <TextView
+            android:text="@string/deportes_upb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textView"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:fontFamily="sans-serif" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:background="@drawable/backgrd_grad"
+
+        android:id="@+id/body">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:elevation="1dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/controlSection">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/codeSection">
+
+                <TextView
+                    android:id="@+id/txtViewCodigo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Codigo:            "
+                    android:textColor="#ffffff"
+                    android:textSize="10pt"
+                    android:layout_weight="2" />
+
+                <EditText
+                    android:id="@+id/txtCodigo"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtViewCodigo"
+                    android:layout_toRightOf="@id/txtViewCodigo"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:id="@+id/passwordSection">
+
+                <TextView
+                    android:id="@+id/txtViewPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtViewCodigo"
+                    android:text="Contraseña: "
+                    android:textColor="#ffffff"
+                    android:textSize="10pt" />
+
+                <EditText
+                    android:id="@+id/txtPassword"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtViewPassword"
+                    android:layout_below="@id/txtCodigo"
+                    android:layout_marginLeft="17dip"
+                    android:layout_toRightOf="@id/txtViewPassword"
+                    android:background="@android:drawable/editbox_background"
+                    android:password="true"
+                    android:layout_weight="0.43"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtPassword"
+                android:layout_marginLeft="110dip"
+                android:layout_marginTop="15dip"
+                android:onClick="save"
+                android:text="Login" />
+
+            <TextView
+                android:id="@+id/tv_error"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_below="@id/btnLogin"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="9dip"
+                android:layout_marginTop="15dip"
+                android:text=""
+                android:textColor="#AA0000"
+                android:textSize="7pt" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
+
+
