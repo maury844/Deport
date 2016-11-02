@@ -28,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
         txtCode = (EditText) findViewById(R.id.txtCodigo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
 
-       /*if(isOnline())
+       if(isOnline())
         {
-            Toast.makeText(this, "TEGO INTERNET", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "TENGO INTERNET", Toast.LENGTH_LONG).show();
         }else
         {
-            Toast.makeText(this, "No TEGO INTERNET :V", Toast.LENGTH_LONG).show();
-        }*/
+            Toast.makeText(this, "No TENGO INTERNET :V", Toast.LENGTH_LONG).show();
+        }
 
 /*
         txtCode.setOnEditorActionListener(
