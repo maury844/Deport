@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="projects.brainiacs.formtest">
 
-    <permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -26,7 +26,15 @@
             android:name=".MatchesActivity"
             android:label="@string/title_activity_matches"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddTeamActivity"></activity>
+        <activity android:name=".AddTeamMemberActivity" />
+        <activity
+            android:name=".AdminMainActivity"
+            android:label="@string/title_activity_admin_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddTeamActivity"
+            android:label="@string/title_activity_add_team"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

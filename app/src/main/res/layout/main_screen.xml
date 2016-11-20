@@ -69,7 +69,7 @@
                     android:layout_weight="2" />
 
                 <EditText
-                    android:id="@+id/txtCodigo"
+                    android:id="@+id/txtCode"
                     android:layout_width="150dip"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/txtViewCodigo"
@@ -100,7 +100,7 @@
                     android:layout_width="150dip"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/txtViewPassword"
-                    android:layout_below="@id/txtCodigo"
+                    android:layout_below="@id/txtCode"
                     android:layout_marginLeft="17dip"
                     android:layout_toRightOf="@id/txtViewPassword"
                     android:background="@android:drawable/editbox_background"

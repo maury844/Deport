@@ -41,6 +41,10 @@ public class UserMainActivity extends AppCompatActivity {
 
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 notificationManager.notify(0, notificacion);
+
+
+                Intent intent = new Intent(getApplicationContext(), AddTeamMemberActivity.class);
+                startActivity(intent);
             }
         });
 

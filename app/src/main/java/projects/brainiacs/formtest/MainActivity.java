@@ -6,12 +6,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_screen);
         setTitle("Universidad Privada Boliviana");
 
-        txtCode = (EditText) findViewById(R.id.txtCodigo);
+        txtCode = (EditText) findViewById(R.id.txtCode);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
 
        if(isOnline())
@@ -91,16 +88,27 @@ public class MainActivity extends AppCompatActivity {
 		s+="\"semester\":"    + semestre + "}}";
         */
 
+        String code = txtCode.getText().toString();
+        String password = txtPassword.getText().toString();
+
         Toast.makeText(this, "Bienvenido\n" + txtCode.getText().toString() + "\n"
                 + txtPassword.getText().toString() + "\n"/*
                 + txtAge.getText().toString() + "\n"*/, Toast.LENGTH_LONG).show();
 
-
         txtCode.setText("");
         txtPassword.setText("");
-        Intent intent = new Intent(MainActivity.this, UserMainActivity.class);
 
-        MainActivity.this.startActivity(intent);
+        //Hardcoded Admin USER
+        if( code.equals("1") && password.equals("upb"))
+        {
+            Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
+            MainActivity.this.startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(MainActivity.this, UserMainActivity.class);
+            MainActivity.this.startActivity(intent);
+        }
     }
 
 }

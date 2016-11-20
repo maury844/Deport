@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_admin_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="projects.brainiacs.formtest.AdminMainActivity"
+    tools:showIn="@layout/app_bar_admin_main">
+
+
+    <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_below="@+id/header"
+       >
+
+       <Button
+           android:text="Partidos"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/btnMatches"
+           android:layout_weight="1"
+           android:onClick="triggerNotification (MainUserActivity)" />
+
+       <Button
+           android:text="Fixture"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/button2"
+           android:layout_weight="1" />
+
+   </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#203588"
+        android:id="@+id/header"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/upb"
+            android:id="@+id/imageView"
+            android:padding="10dp"
+            android:scaleX="1"
+            android:scaleY="1" />
+
+        <TextView
+            android:text="Deportes UPB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textView"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:fontFamily="sans-serif" />
+    </LinearLayout>
+
+
+</RelativeLayout>
