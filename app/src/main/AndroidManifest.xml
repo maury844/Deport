@@ -14,25 +14,25 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserMainActivity" />
+        <activity android:name=".Activities.UserMainActivity" />
         <activity
-            android:name=".MatchesActivity"
+            android:name=".Activities.MatchesActivity"
             android:label="@string/title_activity_matches"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddTeamMemberActivity" />
+        <activity android:name=".Activities.AddTeamMemberActivity" />
         <activity
-            android:name=".AdminMainActivity"
+            android:name=".Activities.AdminMainActivity"
             android:label="@string/title_activity_admin_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddTeamActivity"
+            android:name=".Activities.AddTeamActivity"
             android:label="@string/title_activity_add_team"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
