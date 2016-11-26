@@ -9,11 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import projects.brainiacs.formtest.MatchActivity;
 import projects.brainiacs.formtest.R;
 
 public class UserMainActivity extends AppCompatActivity {
 
-    private Button btnMatches;
+    private Button btnPartidos;
     private Button btnFixture;
 
     @Override
@@ -22,10 +23,10 @@ public class UserMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_user);
         setTitle("Universidad Privada Boliviana");
 
-        btnMatches =(Button)findViewById(R.id.btnMatches);
+        btnPartidos =(Button)findViewById(R.id.btnMatches);
         btnFixture =(Button)findViewById(R.id.button2);
 
-        btnMatches.setOnClickListener(new View.OnClickListener() {
+        btnPartidos.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
 
@@ -53,14 +54,10 @@ public class UserMainActivity extends AppCompatActivity {
         btnFixture.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Intent intent = new Intent(getApplicationContext(), MatchesActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
                 startActivity(intent);
             }
         });
 
     }
-
-
-
-
 }

@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
+import okhttp3.Response;
 import okhttp3.ResponseBody;
 import projects.brainiacs.formtest.Models.Evento;
 import projects.brainiacs.formtest.Models.Partido;
@@ -31,6 +32,7 @@ public interface DeportesService {
     Call<Deportista> getDeportista(@Query("codigo") String codigo);
 
     @POST("/persona")
+    //Call<ResponseBody> postDeportista (@Body Deportista body);
     Call<ResponseBody> postDeportista (@Body Deportista body);
 
     @GET("/persona")
@@ -39,11 +41,19 @@ public interface DeportesService {
     @GET("/partido")
     Call<List<Partido>> getPartidos();
 
+    @GET("/partido")
+    Call<List<Partido>> getPartidosDeporte(@Query("deporte") String deporte);
+
     @GET("/equipo")
-    Call<Equipo> getEquipo();
+    Call<Equipo> getEquipo(@Query("evento") String evento);
 
     @GET("/evento")
-    Call<List<Evento>> getEvento();
+    Call<List<Evento>> getEventos();
+
+    @POST("/evento")
+    Call<ResponseBody> postEvento (@Body Evento body);
+
+
 
     /*
     @GET("/disciplina")

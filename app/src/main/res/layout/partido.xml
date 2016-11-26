@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#203588">
+
+        <TextView
+            android:id="@+id/textViewHeaderHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minHeight="24dp"
+            android:textSize="22dp"
+            android:text="Header"
+            android:textStyle="bold"
+            />
+
+
+        <TextView
+            android:id="@+id/textViewHeaderFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minHeight="20dp"
+            android:textSize="18dp"
+            android:text="Header" />
+
+    </LinearLayout>
+
+
+    <!--TextView
+        android:id="@+id/textViewBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="TextView" /-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#DDDDDD">
+
+        <TextView
+            android:id="@+id/textViewEquipo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:textSize="18dp"
+            android:text="TextView"
+            android:layout_weight="0.5"
+            android:minWidth="120dp"
+            android:textColor="#000000"/>
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="3"/>
+
+        <TextView
+            android:id="@+id/textViewEquipo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:textSize="18dp"
+            android:text="TextView"
+            android:layout_weight="0.5"
+            android:minWidth="120dp"
+            android:textColor="#000000"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

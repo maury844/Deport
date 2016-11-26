@@ -100,10 +100,18 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_add_team">AddTeamActivity</string>
-    <string-array name="sports" >
+    <string-array name="deportes">
         <item>Futbol</item>
         <item>Basket</item>
-        <item>Volleyball</item>
-        <item>...</item>
+        <item>Voleibol</item>
     </string-array>
+
+    <string-array name="horarios">
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>18:00</item>
+        <item>18:40</item>
+        <item>19:20</item>
+    </string-array>
+    <string name="title_activity_match">MatchActivity</string>
 </resources>

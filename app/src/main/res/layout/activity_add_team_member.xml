@@ -65,7 +65,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linearLayout"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="125dp">
 
@@ -73,13 +73,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtNombres"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:hint="Nombres"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtApellidos"
             android:textSize="22sp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:hint="Apellidos" />
     </LinearLayout>
 </RelativeLayout>

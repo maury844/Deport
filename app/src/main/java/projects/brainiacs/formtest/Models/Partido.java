@@ -1,19 +1,24 @@
 package projects.brainiacs.formtest.Models;
 
+import java.util.Date;
+
 /**
  * Created by Mauricio on 31/10/2016.
  */
 
 public class Partido {
 
-    private int score;
+    private String score;
     private Equipo[] equipos;
+    private String horario;
+    private Date fecha;
 
-    public int getScore() {
+
+    public String getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(String score) {
         this.score = score;
     }
 
@@ -34,11 +39,39 @@ public class Partido {
         this.equipos = equipos;
     }
 
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
     public Partido()
     {
         //score = null;
         equipos = new Equipo[2];
+
     }
+
+    public Partido(Equipo equipo1, Equipo equipo2, String horario, Date fecha)
+    {
+        //score = null;
+        this.equipos = new Equipo[2];
+        this.equipos[0] = equipo1;
+        this.equipos[1] = equipo2;
+        this.horario = horario;
+        this.fecha = fecha;
+    }
+
 
 
 

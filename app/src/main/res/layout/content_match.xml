@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_match"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="projects.brainiacs.formtest.MatchActivity"
+    tools:showIn="@layout/activity_match"
+    >
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewPartidos"
+
+        android:focusableInTouchMode="false"
+        android:listSelector="@android:color/transparent"
+        android:layout_weight="2"
+        android:headerDividersEnabled="false"
+        android:footerDividersEnabled="false"
+        android:dividerHeight="4dp"
+        android:divider="#FFFFFFAA"
+        android:cacheColorHint="#000000"
+        android:drawSelectorOnTop="false"
+        android:background="#203588"
+        />
+
+    <!--
+    android:background="#4055F8"
+    android:background="#203588" -->
+
+</RelativeLayout>

@@ -17,10 +17,9 @@ import projects.brainiacs.formtest.R;
 
 public class AddTeamActivity extends AppCompatActivity {
 
-    Button  btnCreateTeam;
-    EditText txtTeamName;
-    Spinner spinnerSports;
-
+    Button btnCrearEquipo;
+    EditText txtNombreEquipo;
+    Spinner spinnerDeportes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,27 +28,17 @@ public class AddTeamActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /* ??????????????
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
 
-        btnCreateTeam = (Button) findViewById(R.id.btnCreateTeam);
-        txtTeamName = (EditText) findViewById(R.id.txtTeamName);
-        spinnerSports = (Spinner) findViewById(R.id.spinnerSports);
+        btnCrearEquipo = (Button) findViewById(R.id.btnCrearEquipo);
+        txtNombreEquipo = (EditText) findViewById(R.id.txtNombreEquipo);
+        spinnerDeportes = (Spinner) findViewById(R.id.spinnerDeportes);
 
 
-        btnCreateTeam.setOnClickListener(new View.OnClickListener() {
+        btnCrearEquipo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
 
-                String teamName = txtTeamName.getText().toString();
+                String nombreEquipo = txtNombreEquipo.getText().toString();
 
                 //Adding the Year to the team's name
                 Calendar calendar = Calendar.getInstance();
@@ -57,14 +46,14 @@ public class AddTeamActivity extends AppCompatActivity {
 
 
                 //Validate the team name (?)
-                if(teamName.length() > 0)
+                if(nombreEquipo.length() > 0)
                 {
                     Equipo equipo = new Equipo();
-                    equipo.setNombre(teamName + Integer.toString(year) /*+ sport*/);
+                    equipo.setNombre(nombreEquipo + Integer.toString(year) /*+ sport*/);
                     //team.setSport
                 }
 
-                Toast.makeText(AddTeamActivity.this, "team", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddTeamActivity.this, "Equipo", Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -11,8 +11,26 @@ import java.util.ArrayList;
 
 public class Equipo {
 
-    private ArrayList<Deportista> miembros;
+    //private ArrayList<Deportista> miembros;
     private String nombre;
+    private int anio;
+    Evento evento;
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
 
     public String getNombre() {
         return nombre;
@@ -22,7 +40,7 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    public ArrayList<Deportista> getMiembros() {
+    /*public ArrayList<Deportista> getMiembros() {
         return miembros;
     }
 
@@ -39,6 +57,13 @@ public class Equipo {
     public Equipo()
     {
         miembros = new ArrayList<>();
+    }
+*/
+
+
+    public Equipo(String nombre)
+    {
+        this.nombre = nombre;
     }
 
     public JSONObject teamToJSON()
@@ -60,5 +85,9 @@ public class Equipo {
         return team;
     }
 
-
+    @Override
+    public String toString()
+    {
+        return nombre;
+    }
 }

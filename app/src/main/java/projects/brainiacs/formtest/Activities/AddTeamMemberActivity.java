@@ -1,6 +1,7 @@
 package projects.brainiacs.formtest.Activities;
 
 import android.content.Context;
+import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
+import java.util.Map;
+
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import projects.brainiacs.formtest.DeportesService;
 import projects.brainiacs.formtest.Models.Deportista;
 import projects.brainiacs.formtest.R;
@@ -78,6 +85,16 @@ public class AddTeamMemberActivity extends AppCompatActivity /*implements Callba
         btnAnhadir.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
+/*
+                Map<String, Object> jsonParams = new ArrayMap<>();
+                //put something inside the map, could be null
+                jsonParams.put("code", 2);
+                RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),(new JSONObject(jsonParams)).toString());
+                Call<ResponseBody> call = deportesService.postDeportista(body);
+*/
+
+
+
 
                 txtNombres.setText("");
                 txtApellidos.setText("");

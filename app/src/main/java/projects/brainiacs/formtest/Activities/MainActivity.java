@@ -15,7 +15,7 @@ import projects.brainiacs.formtest.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText txtCode;
+    private EditText txtCodigo;
     private EditText txtPassword;
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_screen);
         setTitle("Universidad Privada Boliviana");
 
-        txtCode = (EditText) findViewById(R.id.txtCodigo);
+        txtCodigo = (EditText) findViewById(R.id.txtCodigo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
 
        if(isOnline())
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 /*
-        txtCode.setOnEditorActionListener(
+        txtCodigo.setOnEditorActionListener(
                 new EditText.OnEditorActionListener() {
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
-        //EditText txtCode = (EditText) findViewById(R.id.txtCodigo);
+        //EditText txtCodigo = (EditText) findViewById(R.id.txtCodigo);
 //        EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
         //EditText txtAge = (EditText) findViewById(R.id.txtAge);
 
@@ -90,18 +90,17 @@ public class MainActivity extends AppCompatActivity {
 		s+="\"semester\":"    + semestre + "}}";
         */
 
-        String code = txtCode.getText().toString();
+        String codigo = txtCodigo.getText().toString();
         String password = txtPassword.getText().toString();
 
-        Toast.makeText(this, "Bienvenido\n" + txtCode.getText().toString() + "\n"
-                + txtPassword.getText().toString() + "\n"/*
-                + txtAge.getText().toString() + "\n"*/, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Bienvenido\n" + txtCodigo.getText().toString() + "\n"
+                + txtPassword.getText().toString() + "\n", Toast.LENGTH_LONG).show();
 
-        txtCode.setText("");
+        txtCodigo.setText("");
         txtPassword.setText("");
 
         //Hardcoded Admin USER
-        if( code.equals("1") && password.equals("upb"))
+        if( codigo.equals("1") && password.equals("upb"))
         {
             Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
             MainActivity.this.startActivity(intent);

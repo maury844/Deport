@@ -11,7 +11,8 @@ public class Evento {
     private String deporte;
     private String nombre;
     private String descripcion;
-    private Date fechaInicio;
+   // private Date fechaInicio;
+    private String fechaInicio;
     private Date fechaFin;
     private String lugar; //venue?
 
@@ -39,11 +40,19 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaInicio() {
+    /*public Date getFechaInicio() {
         return fechaInicio;
     }
 
     public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }*/
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
@@ -63,4 +72,8 @@ public class Evento {
         this.lugar = lugar;
     }
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }
