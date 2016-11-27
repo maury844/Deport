@@ -1,6 +1,8 @@
 package projects.brainiacs.formtest.Activities;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -154,6 +156,8 @@ public class AddEventActivity extends AppCompatActivity {
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             //Toast.makeText(AddTeamMemberActivity.this, "SUCCESS!! :D", Toast.LENGTH_LONG).show();
                             //txtApellidos.setText(response.body().getApellidoPaterno());
+                            //Aqui acceder al body y anhadir a los shared preferences el key value pair de NombreEvento y idEvento;
+                            //response.body().;
                         }
 
                         @Override
@@ -172,6 +176,14 @@ public class AddEventActivity extends AppCompatActivity {
 
     private boolean isEmpty(EditText editText) {
         return editText.getText().toString().trim().length() == 0;
+    }
+
+    //Save in Shared Preferences the key and value
+    private void savePreferences(String key, int value)
+    {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(key, value);
     }
 
     public boolean isValid(EditText editText) {

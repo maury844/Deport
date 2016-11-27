@@ -48,8 +48,8 @@ public class AddTeamActivity extends AppCompatActivity {
                 //Validate the team name (?)
                 if(nombreEquipo.length() > 0)
                 {
-                    Equipo equipo = new Equipo();
-                    equipo.setNombre(nombreEquipo + Integer.toString(year) /*+ sport*/);
+                    //Equipo equipo = new Equipo();
+                    //equipo.setNombre(nombreEquipo + Integer.toString(year) /*+ sport*/);
                     //team.setSport
                 }
 
