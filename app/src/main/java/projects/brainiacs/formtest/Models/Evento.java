@@ -8,14 +8,14 @@ import java.util.Date;
 
 public class Evento {
 
-    private int codigo;
+    private int id;
 
-    public int getCodigo() {
-        return codigo;
+    public int getId() {
+        return id;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setId(int id) {
+        this.id = id;
     }
 
     private String deporte;

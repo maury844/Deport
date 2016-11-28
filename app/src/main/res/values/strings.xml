@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">DeportesUPB</string>
     <string name="password">Contraseña</string>
-    <string name="codigo">Código</string>
+    <string name="id">Código</string>
     <string name="deportes_upb">Deportes UPB</string>
     <string name="title_activity_matches">MatchesActivity</string>
     <string name="large_text">

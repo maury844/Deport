@@ -44,8 +44,14 @@ public interface DeportesService {
     @GET("/partido")
     Call<List<Partido>> getPartidosDeporte(@Query("deporte") String deporte);
 
+    @POST("/partido")
+    Call<ResponseBody> postPartido(@Body Partido body);
+
     @GET("/equipo")
     Call<Equipo> getEquipo(@Query("evento") String evento);
+
+    @GET("/equipo")
+    Call<List<Equipo>> getEquiposEnEvento(int codigoEvento);
 
     @GET("/evento")
     Call<List<Evento>> getEventos();
@@ -76,5 +82,6 @@ public interface DeportesService {
             //.addConverterFactory(GsonConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
+
 
 }

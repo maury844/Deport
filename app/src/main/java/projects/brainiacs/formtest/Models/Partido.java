@@ -12,6 +12,7 @@ public class Partido {
     private String horaInicio;
     private String equipo1;
     private String equipo2;
+    private String fecha;
 
     public String getEquipo1() {
         return equipo1;
@@ -47,7 +48,7 @@ public class Partido {
         }
     */
 
-    private String Fecha;
+
 
     public String getPuntaje() {
         return puntaje;
@@ -62,7 +63,7 @@ public class Partido {
         return equipos[position];
     }
 
-    public Equipo[] getEquipos() {
+    public Equipo[] getEquiposEnEvento() {
         return equipos;
     }
 
@@ -94,11 +95,11 @@ public class Partido {
     }
 
     public String getFecha() {
-        return Fecha;
+        return fecha;
     }
 
     public void setFecha(String fecha) {
-        this.Fecha = fecha;
+        this.fecha = fecha;
     }
 
     public Partido()
@@ -117,7 +118,7 @@ public class Partido {
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
         this.horaInicio = horaInicio;
-        this.Fecha = fecha;
+        this.fecha = fecha;
     }*/
 
 

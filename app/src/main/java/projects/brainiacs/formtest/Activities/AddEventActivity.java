@@ -2,7 +2,6 @@ package projects.brainiacs.formtest.Activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,10 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import okhttp3.ResponseBody;
 import projects.brainiacs.formtest.DeportesService;
 import projects.brainiacs.formtest.Models.Evento;
 import projects.brainiacs.formtest.R;
@@ -161,7 +157,7 @@ public class AddEventActivity extends AppCompatActivity {
                         public void onResponse(Call<Evento> call, Response<Evento> response) {
 
                             //Aqui acceder al body y anhadir a los shared preferences el key value pair de NombreEvento y idEvento;
-                            int codigo = response.body().getCodigo();
+                            int codigo = response.body().getId();
                             String nombre = response.body().getNombre();
                             savePreferences(nombre, codigo);
                         }
@@ -193,8 +189,10 @@ public class AddEventActivity extends AppCompatActivity {
     //Save in Shared Preferences the key and value
     private void savePreferences(String key, int value)
     {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sp.edit();
+        //SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = getSharedPreferences("eventosRegistrados", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(key, value);
+        editor.commit();
     }
 }
