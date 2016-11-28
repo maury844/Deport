@@ -31,12 +31,12 @@ public interface DeportesService {
     @GET("/persona")
     Call<Deportista> getDeportista(@Query("codigo") String codigo);
 
-    @POST("/persona")
-    //Call<ResponseBody> postDeportista (@Body Deportista body);
+    @POST("/equipo/persona")
     Call<ResponseBody> postDeportista (@Body Deportista body);
 
     @GET("/persona")
     Call<List<Deportista>> getDeportistas();
+
 
     @GET("/partido")
     Call<List<Partido>> getPartidos();
@@ -47,11 +47,23 @@ public interface DeportesService {
     @POST("/partido")
     Call<ResponseBody> postPartido(@Body Partido body);
 
+
     @GET("/equipo")
     Call<Equipo> getEquipo(@Query("evento") String evento);
 
-    @GET("/equipo")
-    Call<List<Equipo>> getEquiposEnEvento(int codigoEvento);
+    @POST("/equipo")
+    Call<ResponseBody> postEquipo(@Body Equipo body);
+
+
+
+    @GET("/equipo/actuales")
+    Call<List<Equipo>> getEquiposActuales();
+
+    @GET("/equipo/evento")
+    Call<List<Equipo>> getEquiposEnEvento(@Query("codigoEvento") int codigoEvento);
+
+    @GET("/equipo/evento")
+    Call<List<Equipo>> getEquiposEnEventoPorNombre(@Query("nombre") String nombreEvento);
 
     @GET("/evento")
     Call<List<Evento>> getEventos();

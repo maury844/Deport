@@ -16,7 +16,15 @@ public class Deportista {
     private int ci;
     private int celular;
     private String email;
+    private String nombreEquipo;
 
+    public String getNombreEquipo() {
+        return nombreEquipo;
+    }
+
+    public void setNombreEquipo(String nombreEquipo) {
+        this.nombreEquipo = nombreEquipo;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -72,23 +80,6 @@ public class Deportista {
         this.email = email;
     }
 
-    public JSONObject playerToJSON()
-    {
-        JSONObject player = new JSONObject();
-        try
-        {
-            player.put("codigo", this.codigo);
-            player.put("nombre", this.nombre);
-
-            //team.put("birthday", "5/5/1993");
-
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return player;
-    }
 
     @Override
     public String toString()

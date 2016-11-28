@@ -1,10 +1,5 @@
 package projects.brainiacs.formtest.Models;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
 /**
  * Created by Mauricio on 31/10/2016.
  */
@@ -13,7 +8,7 @@ public class Equipo {
 
     private String nombre;
     private int anio;
-
+    private String evento;
 
     public int getAnio() {
         return anio;
@@ -31,50 +26,16 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    /*public ArrayList<Deportista> getMiembros() {
-        return miembros;
+    public String getEvento() {
+        return evento;
     }
 
-    public void setMiembros(ArrayList<Deportista> miembros) {
-        this.miembros = miembros;
+    public void setEvento(String evento) {
+        this.evento = evento;
     }
 
-    // -------------------------------------------------------------
-    public Equipo(ArrayList<Deportista> miembros, String nombre) {
-        this.miembros = miembros;
-        this.nombre = nombre;
-    }
+    public Equipo() {}
 
-    public Equipo()
-    {
-        miembros = new ArrayList<>();
-    }
-*/
-
-
-    public Equipo(String nombre)
-    {
-        this.nombre = nombre;
-    }
-
-    public JSONObject teamToJSON()
-    {
-        JSONObject team = new JSONObject();
-        try
-        {
-            //team.put("id", "3");
-            team.put("name", this.nombre);
-            //team.put("year", "3rd");
-            //team.put("curriculum", "Arts");
-            //team.put("birthday", "5/5/1993");
-
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return team;
-    }
 
     @Override
     public String toString()

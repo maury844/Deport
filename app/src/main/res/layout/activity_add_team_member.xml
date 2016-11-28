@@ -85,5 +85,11 @@
             android:layout_marginTop="20dp"
             android:textAlignment="center"
             android:hint="Apellidos" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerEquipos"
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 </RelativeLayout>

@@ -71,6 +71,8 @@ public class AddMatchActivity extends AppCompatActivity {
         //spinnerEventoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEquipo2.setAdapter(spinnerEquipo2Adapter);
 
+        spinnerHorario = (Spinner) findViewById(R.id.spinnerHorario);
+
         //Cargar los eventos al spinner
         Call<List<Evento>> callEventos = deportesService.getEventos();
 
@@ -109,7 +111,16 @@ public class AddMatchActivity extends AppCompatActivity {
                     //Obtiene el codigo del evento
                     int idEvento = loadEventosRegistrados(spinnerEvento.getSelectedItem().toString());
 
-                    Call<List<Equipo>> callEquipos = deportesService.getEquiposEnEvento(idEvento);
+                    Call<List<Equipo>> callEquipos;
+
+                    if(idEvento > 0)
+                    {
+                        callEquipos = deportesService.getEquiposEnEvento(idEvento);
+                    }
+                    else
+                    {
+                        callEquipos = deportesService.getEquiposEnEventoPorNombre(spinnerEvento.getSelectedItem().toString());
+                    }
 
                     callEquipos.enqueue(new Callback<List<Equipo>>() {
                         @Override
@@ -198,6 +209,7 @@ public class AddMatchActivity extends AppCompatActivity {
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response)
                         {
                             //El servidor responde un OK a la insercion
+                            Toast.makeText(AddMatchActivity.this, "Partido creado con éxito!", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override

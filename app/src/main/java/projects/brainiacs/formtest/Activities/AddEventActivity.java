@@ -50,7 +50,7 @@ public class AddEventActivity extends AppCompatActivity {
         txtDescripcion = (EditText) findViewById(R.id.txtDescripcion);
         txtLugar = (EditText) findViewById(R.id.txtLugar);
         btnCrearEvento = (Button) findViewById(R.id.btnCrearEvento);
-        spinnerDeportes = (Spinner) findViewById(R.id.spinnerDeportes);
+        spinnerDeportes = (Spinner) findViewById(R.id.spinnerEventos);
 
         deportesService = DeportesService.retrofit.create(DeportesService.class);
 
@@ -183,7 +183,7 @@ public class AddEventActivity extends AppCompatActivity {
         String w = editText.getText().toString();
        // return w.matches("[A-Za-z][^.]*");
         //Al menos una letra y luego una combinacion cualquiera de letras y numeros
-        return w.matches("[a-zA-Z][a-zA-Z_0-9]*");
+        return w.matches("[a-zA-Z]([a-zA-Z_0-9 ])*");
     }
 
     //Save in Shared Preferences the key and value

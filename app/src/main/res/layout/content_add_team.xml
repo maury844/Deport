@@ -78,27 +78,19 @@
             android:layout_marginTop="10dp"
             android:hint="Nombre del Equipo" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText2"
-            android:layout_marginTop="5dp"
-            android:hint="AlgunDatoExtraXD" />
-
     </LinearLayout>
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinnerDeportes"
+        android:id="@+id/spinnerEventos"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
         />
 
     <Button
-        android:text="Button"
+        android:text="Registrar Equipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnCrearEquipo"
