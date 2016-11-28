@@ -2,9 +2,12 @@ package projects.brainiacs.formtest.Activities;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import projects.brainiacs.formtest.R;
 
@@ -83,7 +87,7 @@ public class AdminMainActivity extends AppCompatActivity
         });
 
     }
-
+/*
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -93,7 +97,7 @@ public class AdminMainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -145,4 +149,54 @@ public class AdminMainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    /************************************************************************************************************************************
+     *  Metodo para salir de la aplicacion con doubleBackPress
+     ************************************************************************************************************************************/
+
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce)
+        {
+            //Mostrar una alerta
+            new AlertDialog.Builder(AdminMainActivity.this)
+                    .setTitle("Salir")
+                    .setMessage("¿Esta seguro que desea salir de la aplicación?")
+                    .setPositiveButton(/*android.R.string.yes*/"Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Salir de la app
+                            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+                            homeIntent.addCategory( Intent.CATEGORY_HOME );
+                            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(homeIntent);
+                        }
+                    })
+                    .setNegativeButton(/*android.R.string.no*/"No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            //No hacer nada
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Presione atrás otra vez si desea salir", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
+
+
+
+
 }

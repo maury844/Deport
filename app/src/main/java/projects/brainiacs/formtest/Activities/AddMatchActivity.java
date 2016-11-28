@@ -229,52 +229,5 @@ public class AddMatchActivity extends AppCompatActivity {
     }
 
 
-    /************************************************************************************************************************************
-     *  Metodo para salir de la aplicacion con doubleBackPress
-    ************************************************************************************************************************************/
-
-    boolean doubleBackToExitPressedOnce = false;
-
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce)
-        {
-            //Mostrar una alerta
-            new AlertDialog.Builder(AddMatchActivity.this)
-                    .setTitle("Salir")
-                    .setMessage("¿Esta seguro que desea salir de la aplicación?")
-                    .setPositiveButton(/*android.R.string.yes*/"Si", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            //Salir de la app
-                            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
-                            homeIntent.addCategory( Intent.CATEGORY_HOME );
-                            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(homeIntent);
-                        }
-                    })
-                    .setNegativeButton(/*android.R.string.no*/"No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            //No hacer nada
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
-
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Presione atrás otra vez si desea salir", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
-    }
-
-
 
 }

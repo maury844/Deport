@@ -26,7 +26,7 @@ import retrofit2.http.Query;
 public interface DeportesService {
 
     //String ENDPOINT = "";
-    String ENDPOINT = "http://10.0.0.9:8080";
+    String ENDPOINT = "http://10.0.0.15:8080";
 
     @GET("/persona")
     Call<Deportista> getDeportista(@Query("codigo") String codigo);
