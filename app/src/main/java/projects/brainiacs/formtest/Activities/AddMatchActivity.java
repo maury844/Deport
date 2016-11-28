@@ -3,6 +3,8 @@ package projects.brainiacs.formtest.Activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -27,6 +29,8 @@ public class AddMatchActivity extends AppCompatActivity {
     private Spinner spinnerHorario;
 
     private Button btnAnhadir;
+
+    boolean initialSelection = true;
 
     DeportesService deportesService;
 
@@ -70,7 +74,28 @@ public class AddMatchActivity extends AppCompatActivity {
         });
 
 
+        spinnerEvento.setOnItemSelectedListener(new OnItemSelectedListener() {
 
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(!initialSelection)
+                {
+                    //Query al servidor con el evento
+
+                }
+                else
+                {
+                    //El metodo se llama cuando se construye la vista, añadimos un flag
+                    //para diferenciar cuando el evento se dispara por una accion del usuario
+                    initialSelection = false;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         spinnerEquipo1Adapter.add("value");
         spinnerEquipo1Adapter.notifyDataSetChanged();

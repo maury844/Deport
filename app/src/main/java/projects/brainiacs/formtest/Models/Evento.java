@@ -8,6 +8,16 @@ import java.util.Date;
 
 public class Evento {
 
+    private int codigo;
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     private String deporte;
     private String nombre;
     private String descripcion;

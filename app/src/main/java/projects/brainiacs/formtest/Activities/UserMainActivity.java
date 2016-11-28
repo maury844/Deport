@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import projects.brainiacs.formtest.MatchActivity;
 import projects.brainiacs.formtest.R;
 
 public class UserMainActivity extends AppCompatActivity {

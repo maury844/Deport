@@ -21,6 +21,8 @@ public class AddTeamActivity extends AppCompatActivity {
     EditText txtNombreEquipo;
     Spinner spinnerDeportes;
 
+    boolean invalidFields = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,26 +40,47 @@ public class AddTeamActivity extends AppCompatActivity {
             public void onClick(View v)
             {
 
-                String nombreEquipo = txtNombreEquipo.getText().toString();
+                invalidFields = false;
 
+                if(isEmpty(txtNombreEquipo))
+                {
+                    txtNombreEquipo.setError("Campos Requeridos");
+                    invalidFields = true;
+                }
+                else if( !isValid(txtNombreEquipo) )
+                {
+                    txtNombreEquipo.setError("El nombre no puede contener caracteres especiales");
+                    invalidFields = true;
+                }
+
+                //El nombre del equipo es correcto
+                if(!invalidFields)
+                {
+                    String nombreEquipo = txtNombreEquipo.getText().toString();
+                }
+/*
                 //Adding the Year to the team's name
                 Calendar calendar = Calendar.getInstance();
                 int year = calendar.get(Calendar.YEAR);
+*/
 
-
-                //Validate the team name (?)
-                if(nombreEquipo.length() > 0)
-                {
-                    //Equipo equipo = new Equipo();
-                    //equipo.setNombre(nombreEquipo + Integer.toString(year) /*+ sport*/);
-                    //team.setSport
-                }
-
-                Toast.makeText(AddTeamActivity.this, "Equipo", Toast.LENGTH_SHORT).show();
 
             }
         });
 
     }
+
+
+    private boolean isEmpty(EditText editText) {
+        return editText.getText().toString().trim().length() == 0;
+    }
+
+    public boolean isValid(EditText editText) {
+        String w = editText.getText().toString();
+
+        //Al menos una letra y luego una combinacion cualquiera de letras y numeros
+        return w.matches("[a-zA-Z][a-zA-Z_0-9]*");
+    }
+
 
 }

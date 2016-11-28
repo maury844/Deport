@@ -65,7 +65,7 @@ public class AddTeamMemberActivity extends AppCompatActivity /*implements Callba
                         public void onResponse(Call<Deportista> call, Response<Deportista> response) {
                             //Toast.makeText(AddTeamMemberActivity.this, "SUCCESS!! :D", Toast.LENGTH_LONG).show();
                             txtNombres.setText(response.body().getNombre());
-                            txtApellidos.setText(response.body().getApellidoPaterno());
+                            txtApellidos.setText(response.body().getApellidoPaterno() + " " + response.body().getApellidoMaterno());
                         }
 
                         @Override

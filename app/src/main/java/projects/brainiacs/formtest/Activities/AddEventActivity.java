@@ -49,7 +49,7 @@ public class AddEventActivity extends AppCompatActivity {
 
         final ArrayList<EditText> listaTxt = new ArrayList<>();
 
-        datePicker = (DatePicker) findViewById(R.id.datePicker);
+        datePicker = (DatePicker) findViewById(R.id.datePickerEventos);
         txtNombre = (EditText) findViewById(R.id.txtNombreEvento);
         txtDescripcion = (EditText) findViewById(R.id.txtDescripcion);
         txtLugar = (EditText) findViewById(R.id.txtLugar);
@@ -58,17 +58,10 @@ public class AddEventActivity extends AppCompatActivity {
 
         deportesService = DeportesService.retrofit.create(DeportesService.class);
 
-
+        //Añadimos los txt a la lista para realizar la verificacion de manera mas sencilla
         listaTxt.add(txtNombre);
         listaTxt.add(txtDescripcion);
         listaTxt.add(txtLugar);
-
-        //Cargando el spinner con deportes
-        //Resources res = getResources();
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_item, res.getStringArray(R.array.deportes) );
-        //spinnerDeportes.setAdapter(adapter);
-
-
 
         btnCrearEvento.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
@@ -82,7 +75,6 @@ public class AddEventActivity extends AppCompatActivity {
                         InputMethodManager.HIDE_NOT_ALWAYS);
 
 /*
-
                 for(EditText et : listaTxt)
                 {
                     if(et.hasFocus())
@@ -111,12 +103,7 @@ public class AddEventActivity extends AppCompatActivity {
 
                 //Verifica que la fecha no sea pasada
                 String fechaInicio = datePicker.getDayOfMonth() + "/" + (datePicker.getMonth()+1) + "/" + datePicker.getYear();
-                /*fechaInicio = Integer.toString(datePicker.getDayOfMonth());
-                fechaInicio += "/";
-                fechaInicio += Integer.toString((1+datePicker.getMonth()));
-                fechaInicio += "/";
-*/
-                //Toast.makeText(AddEventActivity.this, "Fecha: " + fechaInicio, Toast.LENGTH_LONG).show();
+
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
                 Date strDate;
 
@@ -134,8 +121,6 @@ public class AddEventActivity extends AppCompatActivity {
                 }
 
 
-
-
                 if(!invalidFields)
                 {
                     //Creamos el Evento
@@ -148,7 +133,7 @@ public class AddEventActivity extends AppCompatActivity {
                     //evento.setFechaInicio(new Date(datePicker.get));
                     evento.setFechaInicio(fechaInicio);
 
-
+/*
                     Call<ResponseBody> call = deportesService.postEvento(evento);
 
                     call.enqueue(new Callback<ResponseBody>() {
@@ -156,6 +141,7 @@ public class AddEventActivity extends AppCompatActivity {
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             //Toast.makeText(AddTeamMemberActivity.this, "SUCCESS!! :D", Toast.LENGTH_LONG).show();
                             //txtApellidos.setText(response.body().getApellidoPaterno());
+
                             //Aqui acceder al body y anhadir a los shared preferences el key value pair de NombreEvento y idEvento;
                             //response.body().;
                         }
@@ -166,7 +152,26 @@ public class AddEventActivity extends AppCompatActivity {
                         }
                     });
                 }
+*/
 
+                    Call<Evento> call = deportesService.postEvento(evento);
+
+                    call.enqueue(new Callback<Evento>() {
+                        @Override
+                        public void onResponse(Call<Evento> call, Response<Evento> response) {
+
+                            //Aqui acceder al body y anhadir a los shared preferences el key value pair de NombreEvento y idEvento;
+                            int codigo = response.body().getCodigo();
+                            String nombre = response.body().getNombre();
+                            savePreferences(nombre, codigo);
+                        }
+
+                        @Override
+                        public void onFailure(Call<Evento> call, Throwable t) {
+                            Toast.makeText(AddEventActivity.this, "Por favor intente nuevamente", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
 
             }
         });
@@ -178,18 +183,18 @@ public class AddEventActivity extends AppCompatActivity {
         return editText.getText().toString().trim().length() == 0;
     }
 
+    public boolean isValid(EditText editText) {
+        String w = editText.getText().toString();
+       // return w.matches("[A-Za-z][^.]*");
+        //Al menos una letra y luego una combinacion cualquiera de letras y numeros
+        return w.matches("[a-zA-Z][a-zA-Z_0-9]*");
+    }
+
     //Save in Shared Preferences the key and value
     private void savePreferences(String key, int value)
     {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(key, value);
-    }
-
-    public boolean isValid(EditText editText) {
-        String w = editText.getText().toString();
-       // return w.matches("[A-Za-z][^.]*");
-        //Al menos una letra y luego una combinacion cualquiera de letras y numeros
-        return w.matches("[a-zA-Z][a-zA-Z_0-9]*");
     }
 }

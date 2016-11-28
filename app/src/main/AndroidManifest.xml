@@ -22,10 +22,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.UserMainActivity" />
-        <activity
-            android:name=".Activities.MatchesActivity"
-            android:label="@string/title_activity_matches"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.AddTeamMemberActivity" />
         <activity
             android:name=".Activities.AdminMainActivity"
@@ -36,7 +32,7 @@
             android:label="@string/title_activity_add_team"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MatchActivity"
+            android:name=".Activities.MatchActivity"
             android:label="@string/title_activity_match"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.AddEventActivity" />

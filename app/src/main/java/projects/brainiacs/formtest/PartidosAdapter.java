@@ -62,10 +62,12 @@ public class PartidosAdapter extends BaseAdapter{
         TextView txtEquipo1 = (TextView) vi.findViewById(R.id.textViewEquipo1);
         TextView txtEquipo2 = (TextView) vi.findViewById(R.id.textViewEquipo2);
 
-        txtHora.setText(data.get(position).getHorario().toString());
-        txtFecha.setText(data.get(position).getFecha().toString());
-        txtEquipo1.setText(data.get(position).getEquipo(0).toString());
-        txtEquipo2.setText(data.get(position).getEquipo(1).toString());
+        txtHora.setText(data.get(position).getHoraInicio());
+        txtFecha.setText(data.get(position).getFecha());
+        //txtEquipo1.setText(data.get(position).getEquipo(0).toString());
+        //txtEquipo2.setText(data.get(position).getEquipo(1).toString());
+        txtEquipo1.setText(data.get(position).getEquipo1().toString());
+        txtEquipo2.setText(data.get(position).getEquipo2().toString());
 
         return vi;
     }

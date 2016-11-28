@@ -11,10 +11,9 @@ import java.util.ArrayList;
 
 public class Equipo {
 
-    //private ArrayList<Deportista> miembros;
     private String nombre;
     private int anio;
-    Evento evento;
+
 
     public int getAnio() {
         return anio;
@@ -22,14 +21,6 @@ public class Equipo {
 
     public void setAnio(int anio) {
         this.anio = anio;
-    }
-
-    public Evento getEvento() {
-        return evento;
-    }
-
-    public void setEvento(Evento evento) {
-        this.evento = evento;
     }
 
     public String getNombre() {
