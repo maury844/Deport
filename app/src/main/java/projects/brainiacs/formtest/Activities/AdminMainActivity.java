@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
@@ -18,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import projects.brainiacs.formtest.R;
@@ -26,10 +28,10 @@ public class AdminMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private Button btnPartidos;
+    private Button btnEventos;
     private Button btnFixture;
 
-
+    private ImageView imgsNoticias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +52,21 @@ public class AdminMainActivity extends AppCompatActivity
 
         //------------------------------------------------------------------------------------------
 
-        btnPartidos =(Button)findViewById(R.id.btnMatches);
-        btnFixture =(Button)findViewById(R.id.button2);
+        btnEventos =(Button)findViewById(R.id.btnEventos);
+        btnFixture =(Button)findViewById(R.id.btnPartidos);
+        imgsNoticias = (ImageView) findViewById(R.id.imgViewNoticias);
 
-        btnPartidos.setOnClickListener(new View.OnClickListener() {
+
+        btnEventos.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
 
                 //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
                 //PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+
+                Intent intent = new Intent(getApplicationContext(), EventActivity.class);
+                startActivity(intent);
 
                 Notification notificacion = new NotificationCompat.Builder(AdminMainActivity.this)
                         .setContentTitle("Deportes UPB")
@@ -85,6 +92,21 @@ public class AdminMainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+
+        //Animacion en el image view
+        AnimationDrawable animation = new AnimationDrawable();
+        animation.addFrame(getResources().getDrawable(R.drawable.final_challenge), 3000);
+        animation.addFrame(getResources().getDrawable(R.drawable.campeonato_interuniversitario), 3000);
+        animation.addFrame(getResources().getDrawable(R.drawable.bailando_upb), 3000);
+        animation.setOneShot(false);
+
+        imgsNoticias.setImageDrawable(animation);
+
+        // start the animation!
+        animation.start();
+
+
 
     }
 /*

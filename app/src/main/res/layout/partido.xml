@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:minHeight="24dp"
             android:textSize="22dp"
-            android:text="Header"
+            android:text="Hora"
             android:textStyle="bold"
             />
 
@@ -31,7 +31,7 @@
             android:layout_gravity="center"
             android:minHeight="20dp"
             android:textSize="18dp"
-            android:text="Header" />
+            android:text="Fecha" />
 
     </LinearLayout>
 

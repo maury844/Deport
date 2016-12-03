@@ -38,6 +38,8 @@ public class AddTeamMemberActivity extends AppCompatActivity /*implements Callba
     private Spinner spinnerEquipos;
     DeportesService deportesService;
 
+    boolean loadedTeams = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +58,7 @@ public class AddTeamMemberActivity extends AppCompatActivity /*implements Callba
         spinnerEquipos.setAdapter(spinnerEquiposAdapter);
 
         //Carga los equipos "actuales" al spinner
-        Call<List<Equipo>> callEquipos  = deportesService.getEquiposActuales();
+        final Call<List<Equipo>> callEquipos  = deportesService.getEquiposActuales();
 
         callEquipos.enqueue(new Callback<List<Equipo>>() {
             @Override
@@ -68,11 +70,16 @@ public class AddTeamMemberActivity extends AppCompatActivity /*implements Callba
 
                 spinnerEquiposAdapter.notifyDataSetChanged();
 
+                loadedTeams = true;
             }
 
             @Override
             public void onFailure(Call<List<Equipo>> call, Throwable t) {
                 Toast.makeText(AddTeamMemberActivity.this, "Fallo al obtener los equipos. Por favor intente nuevamente" /*+ t.getMessage()*/, Toast.LENGTH_LONG).show();
+
+                //Reintentar
+                //callEquipos.clone();
+
             }
         });
 

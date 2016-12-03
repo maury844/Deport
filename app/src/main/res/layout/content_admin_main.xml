@@ -15,30 +15,6 @@
 
 
     <LinearLayout
-       android:orientation="horizontal"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_below="@+id/header"
-       >
-
-       <Button
-           android:text="Partidos"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/btnMatches"
-           android:layout_weight="1"
-           android:onClick="triggerNotification (MainUserActivity)" />
-
-       <Button
-           android:text="Fixture"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/button2"
-           android:layout_weight="1" />
-
-   </LinearLayout>
-
-    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,5 +44,47 @@
             android:fontFamily="sans-serif" />
     </LinearLayout>
 
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:id="@+id/buttonDiv"
+        >
+
+        <Button
+            android:text="Eventos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnEventos"
+            android:layout_weight="1"
+            android:onClick="triggerNotification (MainUserActivity)"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:text="Fixture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPartidos"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/buttonDiv">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/final_challenge"
+            android:id="@+id/imgViewNoticias"
+            android:layout_weight="1"
+            android:layout_alignParentStart="true"
+            />
+    </FrameLayout>
 
 </RelativeLayout>

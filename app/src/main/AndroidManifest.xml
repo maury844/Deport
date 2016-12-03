@@ -36,7 +36,8 @@
             android:label="@string/title_activity_match"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.AddEventActivity" />
-        <activity android:name=".Activities.AddMatchActivity"></activity>
+        <activity android:name=".Activities.AddMatchActivity" />
+        <activity android:name=".Activities.EventActivity"></activity>
     </application>
 
 </manifest>

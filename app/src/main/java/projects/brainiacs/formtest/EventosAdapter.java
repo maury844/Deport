@@ -9,22 +9,23 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import projects.brainiacs.formtest.Models.Evento;
 import projects.brainiacs.formtest.Models.Partido;
 
 /**
- * Created by Mauricio on 22/11/2016.
+ * Created by Mauricio on 29/10/2016.
  */
 
-public class PartidosAdapter extends BaseAdapter{
-
+public class EventosAdapter extends BaseAdapter{
     Context context;
-    List<Partido> data;
+    List<Evento> data;
+
     private static LayoutInflater inflater = null;
 
-    public PartidosAdapter(Context context, List<Partido> partidos) {
+    public EventosAdapter(Context context, List<Evento> eventos) {
         // TODO Auto-generated constructor stub
         this.context = context;
-        this.data = partidos;
+        this.data = eventos;
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -62,21 +63,11 @@ public class PartidosAdapter extends BaseAdapter{
         TextView txtEquipo1 = (TextView) vi.findViewById(R.id.textViewEquipo1);
         TextView txtEquipo2 = (TextView) vi.findViewById(R.id.textViewEquipo2);
 
-        //Si existe un resultado en el partido, lo cargamos, sino, mantenemos la hora
-        if(data.get(position).getPuntaje() == null)
-        {
-            txtHora.setText(data.get(position).getHoraInicio());
-        }
-        else
-        {
-            txtHora.setText(data.get(position).getPuntaje());
-        }
 
 
-        txtFecha.setText(data.get(position).getFecha());
+        txtHora.setText(data.get(position).getNombre());
+        txtFecha.setText(data.get(position).getLugar());
 
-        txtEquipo1.setText(data.get(position).getEquipo1().toString());
-        txtEquipo2.setText(data.get(position).getEquipo2().toString());
 
         return vi;
     }
