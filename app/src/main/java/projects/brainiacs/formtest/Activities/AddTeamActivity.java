@@ -37,9 +37,7 @@ public class AddTeamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_team);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        setTitle("Universidad Privada Boliviana");
 
         btnCrearEquipo = (Button) findViewById(R.id.btnCrearEquipo);
         txtNombreEquipo = (EditText) findViewById(R.id.txtNombreEquipo);

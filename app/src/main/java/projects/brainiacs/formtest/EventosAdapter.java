@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import projects.brainiacs.formtest.Models.Evento;
@@ -53,20 +55,19 @@ public class EventosAdapter extends BaseAdapter{
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
-            vi = inflater.inflate(R.layout.partido, null);
+            vi = inflater.inflate(R.layout.evento, null);
 
         //Header textViews
-        TextView txtHora = (TextView) vi.findViewById(R.id.textViewHeaderHora);
-        TextView txtFecha = (TextView) vi.findViewById(R.id.textViewHeaderFecha);
+        TextView txtNombre = (TextView) vi.findViewById(R.id.textViewHeaderNombre);
 
         //Body textViews
-        TextView txtEquipo1 = (TextView) vi.findViewById(R.id.textViewEquipo1);
-        TextView txtEquipo2 = (TextView) vi.findViewById(R.id.textViewEquipo2);
+        TextView txtLugar = (TextView) vi.findViewById(R.id.textViewLugar);
+        TextView txtFecha = (TextView) vi.findViewById(R.id.textViewFecha);
 
 
-
-        txtHora.setText(data.get(position).getNombre());
-        txtFecha.setText(data.get(position).getLugar());
+        txtNombre.setText(data.get(position).getNombre());
+        txtLugar.setText(data.get(position).getLugar());
+        txtFecha.setText(data.get(position).getFechaInicio());
 
 
         return vi;

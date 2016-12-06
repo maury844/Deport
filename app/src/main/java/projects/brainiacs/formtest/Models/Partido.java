@@ -1,11 +1,15 @@
 package projects.brainiacs.formtest.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Mauricio on 31/10/2016.
  */
 
-public class Partido {
+public class Partido /*implements Parcelable*/{
 
+    private String idPartido;
     private String puntaje;
    // private Equipo equipo1;
     //private Equipo equipo2;
@@ -13,6 +17,14 @@ public class Partido {
     private String equipo1;
     private String equipo2;
     private String fecha;
+
+    public String getIdPartido() {
+        return idPartido;
+    }
+
+    public void setIdPartido(String idPartido) {
+        this.idPartido = idPartido;
+    }
 
     public String getEquipo1() {
         return equipo1;
@@ -29,26 +41,6 @@ public class Partido {
     public void setEquipo2(String equipo2) {
         this.equipo2 = equipo2;
     }
-
-    /*
-        public Equipo getEquipo1() {
-            return equipo1;
-        }
-
-        public void setEquipo1(Equipo equipo1) {
-            this.equipo1 = equipo1;
-        }
-
-        public Equipo getEquipo2() {
-            return equipo2;
-        }
-
-        public void setEquipo2(Equipo equipo2) {
-            this.equipo2 = equipo2;
-        }
-    */
-
-
 
     public String getPuntaje() {
         return puntaje;
@@ -109,7 +101,7 @@ public class Partido {
 
     }
 
-    /*public Partido(Equipo equipo1, Equipo equipo2, String horaInicio, String fecha)
+    public Partido(String equipo1, String equipo2, String horaInicio, String fecha)
     {
         //puntaje = null;
         //this.equipos = new Equipo[2];
@@ -119,10 +111,21 @@ public class Partido {
         this.equipo2 = equipo2;
         this.horaInicio = horaInicio;
         this.fecha = fecha;
-    }*/
+    }
 
 
-
+    public Partido(String equipo1, String equipo2, String horaInicio, String fecha, String idPartido)
+    {
+        //puntaje = null;
+        //this.equipos = new Equipo[2];
+        //this.equipos[0] = equipo1;
+        //this.equipos[1] = equipo2;
+        this.idPartido = idPartido;
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
+        this.horaInicio = horaInicio;
+        this.fecha = fecha;
+    }
 
 
 

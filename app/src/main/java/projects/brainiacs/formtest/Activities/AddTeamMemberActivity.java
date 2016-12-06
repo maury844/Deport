@@ -44,6 +44,7 @@ public class AddTeamMemberActivity extends AppCompatActivity /*implements Callba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_team_member);
+        setTitle("Universidad Privada Boliviana");
 
         btnBuscar = (ImageButton) findViewById(R.id.btnBuscar);
         txtCodigo = (EditText) findViewById(R.id.txtCodigo);

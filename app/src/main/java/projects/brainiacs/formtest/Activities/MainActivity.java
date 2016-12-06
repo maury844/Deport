@@ -2,12 +2,15 @@ package projects.brainiacs.formtest.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ButtonBarLayout;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText txtCodigo;
     private EditText txtPassword;
+    private Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,34 +30,40 @@ public class MainActivity extends AppCompatActivity {
 
         txtCodigo = (EditText) findViewById(R.id.txtCodigo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+
+        btnLogin.setFocusable(false);
+
+        int codigoConocido = loadPrefConocido();
+        //Si existe guardado ya el valor dle password (EN EL CELULAR), hace login directamente
+        if(codigoConocido != -1)
+        {
+            Toast.makeText(this, "Logeando con shared preferences", Toast.LENGTH_SHORT).show();
+
+            if(!loadLoginValues(codigoConocido).equals(""))
+            {
+                // es admin
+                if(codigoConocido == 1)
+                {
+                    Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
+                    MainActivity.this.startActivity(intent);
+                }
+                else
+                {
+                    Intent intent = new Intent(MainActivity.this, UserMainActivity.class);
+                    MainActivity.this.startActivity(intent);
+                }
+            }
+        }
 
        if(isOnline())
         {
-            Toast.makeText(this, "TENGO INTERNET", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "TENGO INTERNET", Toast.LENGTH_LONG).show();
         }else
         {
-            Toast.makeText(this, "No TENGO INTERNET :V", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Por favor, conéctese a internet!", Toast.LENGTH_LONG).show();
         }
 
-/*
-        txtCodigo.setOnEditorActionListener(
-                new EditText.OnEditorActionListener() {
-                    @Override
-                    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                        if (actionId == EditorInfo.IME_ACTION_SEARCH ||
-                                actionId == EditorInfo.IME_ACTION_DONE ||
-                                event.getAction() == KeyEvent.ACTION_DOWN &&
-                                        event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-                            if (!event.isShiftPressed()) {
-                                // the user is done typing.
-                                Toast.makeText(MainActivity.this, "Finished Typing Code", Toast.LENGTH_SHORT).show();
-                                return true; // consume.
-                            }
-                        }
-                        return false; // pass on to other listeners.
-                    }
-                });
-*/
     }
 
     protected boolean isOnline()
@@ -81,16 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        /*
-        s+="{\"student\":{";
-		s+="\"firstName\":\"" + nombre   + "\",";
-		s+="\"lastName\":\""  + apellido + "\",";
-		s+="\"career\":\""    + carrera  + "\",";
-		s+="\"code\":"        + codigo   + ",";
-		s+="\"semester\":"    + semestre + "}}";
-        */
-
-        String codigo = txtCodigo.getText().toString();
+        int codigo = Integer.parseInt(txtCodigo.getText().toString());
         String password = txtPassword.getText().toString();
 
         Toast.makeText(this, "Bienvenido\n" + txtCodigo.getText().toString() + "\n"
@@ -100,16 +101,65 @@ public class MainActivity extends AppCompatActivity {
         txtPassword.setText("");
 
         //Hardcoded Admin USER
-        if( codigo.equals("1") && password.equals("upb"))
+        if( codigo == 1 && password.equals("upb"))
         {
             Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
             MainActivity.this.startActivity(intent);
+            savePreferencesConocido("conocido", codigo);
+            savePreferencesLogin(codigo, password);
         }
         else
         {
             Intent intent = new Intent(MainActivity.this, UserMainActivity.class);
             MainActivity.this.startActivity(intent);
+            savePreferencesConocido("conocido", codigo);
+            savePreferencesLogin(codigo, password);
         }
     }
+
+    private void savePreferencesLogin(int key, String value)
+    {
+        //SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = getSharedPreferences("loginValues", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(Integer.toString(key), value);
+        editor.commit();
+    }
+
+    private void savePreferencesConocido(String key, int value)
+    {
+        //SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = getSharedPreferences("loginValues", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(key, value);
+        editor.commit();
+    }
+
+    public int loadPrefConocido()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("loginValues", Context.MODE_PRIVATE);
+        int codigoConocido = sharedPreferences.getInt("conocido", -1);
+
+        //retorna -1 si nunca existio un login, retorna el codigo si ya existio alguna vez
+        return codigoConocido;
+    }
+
+    public String loadLoginValues(int codigo)
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("loginValues", Context.MODE_PRIVATE);
+        String password = sharedPreferences.getString(Integer.toString(codigo), "");
+
+        if(!password.equals(""))
+        {
+            return password;
+        }
+        else
+        {
+            //Como deberia manejarse el error?
+            //Existe la posibilidad de que exista tal error?
+            return "";
+        }
+    }
+
 
 }

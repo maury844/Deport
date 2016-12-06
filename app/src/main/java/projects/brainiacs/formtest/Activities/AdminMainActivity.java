@@ -39,6 +39,8 @@ public class AdminMainActivity extends AppCompatActivity
         setContentView(R.layout.activity_admin_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //setTitle("Universidad Privada Boliviana");
+        setTitle("Administrador");
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -89,6 +91,7 @@ public class AdminMainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+                intent.putExtra("permisosAdministrador", true);
                 startActivity(intent);
             }
         });

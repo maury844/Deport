@@ -53,6 +53,8 @@ public class AddMatchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_match);
+        setTitle("Universidad Privada Boliviana");
+
 
         deportesService = DeportesService.retrofit.create(DeportesService.class);
 
@@ -95,11 +97,6 @@ public class AddMatchActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        spinnerEventoAdapter.add("Evento1");
-        spinnerEventoAdapter.add("MiEvento123");
-        spinnerEventoAdapter.notifyDataSetChanged();
-        */
         spinnerEvento.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -113,14 +110,14 @@ public class AddMatchActivity extends AppCompatActivity {
 
                     Call<List<Equipo>> callEquipos;
 
-                    if(idEvento > 0)
+                   /* if(idEvento > 0)
                     {
                         callEquipos = deportesService.getEquiposEnEvento(idEvento);
                     }
                     else
-                    {
+                    {*/
                         callEquipos = deportesService.getEquiposEnEventoPorNombre(spinnerEvento.getSelectedItem().toString());
-                    }
+                    //}
 
                     callEquipos.enqueue(new Callback<List<Equipo>>() {
                         @Override

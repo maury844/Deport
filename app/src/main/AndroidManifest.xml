@@ -15,29 +15,44 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.MainActivity">
+            android:screenOrientation="portrait"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.UserMainActivity" />
-        <activity android:name=".Activities.AddTeamMemberActivity" />
+        <activity
+            android:name=".Activities.UserMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.AddTeamMemberActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.AdminMainActivity"
             android:label="@string/title_activity_admin_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.AddTeamActivity"
             android:label="@string/title_activity_add_team"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.MatchActivity"
             android:label="@string/title_activity_match"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activities.AddEventActivity" />
-        <activity android:name=".Activities.AddMatchActivity" />
-        <activity android:name=".Activities.EventActivity"></activity>
+        <activity
+            android:name=".Activities.AddEventActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.AddMatchActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activities.EventActivity">
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".Activities.AddResultActivity"></activity>
     </application>
 
 </manifest>

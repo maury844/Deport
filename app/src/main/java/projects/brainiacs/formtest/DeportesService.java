@@ -55,7 +55,8 @@ public interface DeportesService {
     @POST("/equipo")
     Call<ResponseBody> postEquipo(@Body Equipo body);
 
-
+    @POST("/partido/resultado")
+    Call<ResponseBody> postResultado(@Body Partido body);
 
     @GET("/equipo/actuales")
     Call<List<Equipo>> getEquiposActuales();

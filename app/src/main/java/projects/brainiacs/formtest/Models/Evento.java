@@ -24,7 +24,7 @@ public class Evento {
    // private Date fechaInicio;
     private String fechaInicio;
     private Date fechaFin;
-    private String lugar; //venue?
+    private String lugar;
 
     public String getDeporte() {
         return deporte;

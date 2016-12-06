@@ -27,6 +27,7 @@ public class EventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
+        setTitle("Universidad Privada Boliviana");
 
         listaEventos = (ListView) findViewById(R.id.listViewPartidos);
         deportesService = DeportesService.retrofit.create(DeportesService.class);
@@ -46,7 +47,7 @@ public class EventActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Evento>> call, Throwable t) {
-                Toast.makeText(EventActivity.this, "Por favor intente nuevamente" + t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(EventActivity.this, "No se puedo conectar con el servidor.\nPor favor intente nuevamente" /*+ t.getMessage()*/, Toast.LENGTH_LONG).show();
             }
         });
 
