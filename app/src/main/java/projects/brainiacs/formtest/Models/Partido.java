@@ -18,6 +18,17 @@ public class Partido /*implements Parcelable*/{
     private String equipo2;
     private String fecha;
 
+    //Reconocer si el puntaje (score) ya ha sido establecido, para mostrarlo en la vista
+    private boolean scoreSet = false;
+
+    public boolean isScoreSet() {
+        return scoreSet;
+    }
+
+    public void setScoreSet(boolean scoreSet) {
+        this.scoreSet = scoreSet;
+    }
+
     public String getIdPartido() {
         return idPartido;
     }

@@ -66,8 +66,8 @@ public class EventosAdapter extends BaseAdapter{
 
 
         txtNombre.setText(data.get(position).getNombre());
-        txtLugar.setText(data.get(position).getLugar());
-        txtFecha.setText(data.get(position).getFechaInicio());
+   //     txtLugar.setText(data.get(position).getLugar());
+     //   txtFecha.setText(data.get(position).getFechaInicio());
 
 
         return vi;

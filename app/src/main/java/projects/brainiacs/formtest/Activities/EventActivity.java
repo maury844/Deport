@@ -29,7 +29,7 @@ public class EventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event);
         setTitle("Universidad Privada Boliviana");
 
-        listaEventos = (ListView) findViewById(R.id.listViewPartidos);
+        listaEventos = (ListView) findViewById(R.id.listViewEventos);
         deportesService = DeportesService.retrofit.create(DeportesService.class);
 
 

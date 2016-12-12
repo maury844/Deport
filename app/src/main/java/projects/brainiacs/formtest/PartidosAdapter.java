@@ -63,7 +63,8 @@ public class PartidosAdapter extends BaseAdapter{
         TextView txtEquipo2 = (TextView) vi.findViewById(R.id.textViewEquipo2);
 
         //Si existe un resultado en el partido, lo cargamos, sino, mantenemos la hora
-        if(data.get(position).getPuntaje() == null)
+        //TODO test si funciona como debe el boolean
+        if(!data.get(position).isScoreSet())
         {
             txtHora.setText(data.get(position).getHoraInicio());
         }
