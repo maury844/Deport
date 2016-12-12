@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin.setFocusable(false);
 
-        int codigoConocido = loadPrefConocido();
+       /* int codigoConocido = loadPrefConocido();
         //Si existe guardado ya el valor dle password (EN EL CELULAR), hace login directamente
         if(codigoConocido != -1)
         {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-
+*/
        if(isOnline())
         {
             //Toast.makeText(this, "TENGO INTERNET", Toast.LENGTH_LONG).show();
@@ -105,18 +105,18 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
             MainActivity.this.startActivity(intent);
-            savePreferencesConocido("conocido", codigo);
-            savePreferencesLogin(codigo, password);
+            //savePreferencesConocido("conocido", codigo);
+            //savePreferencesLogin(codigo, password);
         }
         else
         {
             Intent intent = new Intent(MainActivity.this, UserMainActivity.class);
             MainActivity.this.startActivity(intent);
-            savePreferencesConocido("conocido", codigo);
-            savePreferencesLogin(codigo, password);
+            //savePreferencesConocido("conocido", codigo);
+            //savePreferencesLogin(codigo, password);
         }
     }
-
+/*
     private void savePreferencesLogin(int key, String value)
     {
         //SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -160,6 +160,6 @@ public class MainActivity extends AppCompatActivity {
             return "";
         }
     }
-
+*/
 
 }
