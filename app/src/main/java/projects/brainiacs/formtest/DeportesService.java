@@ -26,7 +26,7 @@ import retrofit2.http.Query;
 public interface DeportesService {
 
     //String ENDPOINT = "";
-    String ENDPOINT = "http://10.0.0.5:8080";
+    String ENDPOINT = "http://10.0.0.22:8080";
     //String ENDPOINT = "http://192.168.40.149:8080";
 
     @GET("/persona")
@@ -42,50 +42,49 @@ public interface DeportesService {
     @GET("/partido")
     Call<List<Partido>> getPartidos();
 
+    //
     @GET("/partido")
     Call<List<Partido>> getPartidosDeporte(@Query("deporte") String deporte);
 
+    //Crear un partido
     @POST("/partido")
     Call<ResponseBody> postPartido(@Body Partido body);
 
+    //Get de los partidos especificos de un evento
+    @GET("/partido/evento")
+    Call<List<Partido>> getPartidosEvento(@Query("nombreEvento") String nombreEvento);
 
-    @GET("/equipo")
-    Call<Equipo> getEquipo(@Query("evento") String evento);
-
+    //Crear un equipo
     @POST("/equipo")
     Call<ResponseBody> postEquipo(@Body Equipo body);
 
+    //Anhadir un resultado
     @POST("/partido/resultado")
     Call<ResponseBody> postResultado(@Body Partido body);
 
+    //Get los equipos del anho en curso
     @GET("/equipo/actuales")
     Call<List<Equipo>> getEquiposActuales();
 
+    //Get los equipos registrados en un evento buscando por Codigo de evento (sin usar)
     @GET("/equipo/evento")
     Call<List<Equipo>> getEquiposEnEvento(@Query("codigoEvento") int codigoEvento);
 
+    //Get los equipos registrados en un evento buscando por nombre de evento
     @GET("/equipo/evento")
     Call<List<Equipo>> getEquiposEnEventoPorNombre(@Query("nombre") String nombreEvento);
 
+    //Get de todos los eventos registrados
     @GET("/evento")
     Call<List<Evento>> getEventos();
-/*
-    @POST("/evento")
-    Call<ResponseBody> postEvento (@Body Evento body);
-*/
 
+    //Crea un evento
     @POST("/evento")
     Call<Evento> postEvento (@Body Evento body);
 
-
-    /*
+    //Get de las disciplinas
     @GET("/disciplina")
-    Call<List<Championship>> getEvento();
-
-    @GET("/tasks")
-    Call<List<Task>> getTasks(@Query("sort") String order);
-
-    */
+    Call<List<String>> getDisciplinas ();
 
     Gson gson = new GsonBuilder()
             .setLenient()

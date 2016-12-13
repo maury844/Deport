@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import projects.brainiacs.formtest.DeportesService;
@@ -51,6 +53,9 @@ public class AddEventActivity extends AppCompatActivity {
         txtLugar = (EditText) findViewById(R.id.txtLugar);
         btnCrearEvento = (Button) findViewById(R.id.btnCrearEvento);
         spinnerDeportes = (Spinner) findViewById(R.id.spinnerEventos);
+        final ArrayAdapter<String> spinnerDeportesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
+        spinnerDeportes.setAdapter(spinnerDeportesAdapter);
+
 
         deportesService = DeportesService.retrofit.create(DeportesService.class);
 
@@ -58,6 +63,27 @@ public class AddEventActivity extends AppCompatActivity {
         listaTxt.add(txtNombre);
         listaTxt.add(txtDescripcion);
         listaTxt.add(txtLugar);
+
+
+        //Cargar los eventos al spinner
+        Call<List<String>> callDisciplinas = deportesService.getDisciplinas();
+
+        callDisciplinas.enqueue(new Callback<List<String>>() {
+            @Override
+            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+                for (String disciplina : response.body())
+                {
+                    spinnerDeportesAdapter.add(disciplina);
+                }
+                spinnerDeportesAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<String>> call, Throwable t) {
+                Toast.makeText(AddEventActivity.this, "No se pudo obtener las disciplinas.\n Por favor intente nuevamente" /*+ t.getMessage()*/, Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         btnCrearEvento.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)

@@ -102,7 +102,7 @@
     <string name="title_activity_add_team">AddTeamActivity</string>
     <string-array name="deportes">
         <item>Futbol</item>
-        <item>Basket</item>
+        <item>Basquetbol</item>
         <item>Voleibol</item>
     </string-array>
 

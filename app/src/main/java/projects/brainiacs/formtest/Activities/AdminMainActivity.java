@@ -99,9 +99,9 @@ public class AdminMainActivity extends AppCompatActivity
 
         //Animacion en el image view
         AnimationDrawable animation = new AnimationDrawable();
-        animation.addFrame(getResources().getDrawable(R.drawable.final_challenge), 3000);
-        animation.addFrame(getResources().getDrawable(R.drawable.campeonato_interuniversitario), 3000);
-        animation.addFrame(getResources().getDrawable(R.drawable.bailando_upb), 3000);
+        animation.addFrame(getResources().getDrawable(R.drawable.final_challenge_peq), 3000);
+        animation.addFrame(getResources().getDrawable(R.drawable.campeonato_interuniversitario_peq), 3000);
+        animation.addFrame(getResources().getDrawable(R.drawable.bailando_upb_peq), 3000);
         animation.setOneShot(false);
 
         imgsNoticias.setImageDrawable(animation);
