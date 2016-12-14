@@ -63,12 +63,13 @@ public class EventosAdapter extends BaseAdapter{
         //Body textViews
         TextView txtLugar = (TextView) vi.findViewById(R.id.textViewLugar);
         TextView txtFecha = (TextView) vi.findViewById(R.id.textViewFecha);
+        TextView txtDescripcion = (TextView) vi.findViewById(R.id.textViewDescripcion);
 
 
         txtNombre.setText(data.get(position).getNombre());
-   //     txtLugar.setText(data.get(position).getLugar());
-     //   txtFecha.setText(data.get(position).getFechaInicio());
-
+        txtLugar.setText(data.get(position).getLugar());
+        txtFecha.setText(data.get(position).getFechaInicio());
+        txtDescripcion.setText(data.get(position).getDescripcion());
 
         return vi;
     }

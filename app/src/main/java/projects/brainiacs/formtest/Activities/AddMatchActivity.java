@@ -119,6 +119,9 @@ public class AddMatchActivity extends AppCompatActivity {
                         callEquipos = deportesService.getEquiposEnEventoPorNombre(spinnerEvento.getSelectedItem().toString());
                     //}
 
+                    spinnerEquipo1Adapter.clear();
+                    spinnerEquipo2Adapter.clear();
+
                     callEquipos.enqueue(new Callback<List<Equipo>>() {
                         @Override
                         public void onResponse(Call<List<Equipo>> call, Response<List<Equipo>> response) {

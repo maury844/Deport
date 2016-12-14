@@ -9,9 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import projects.brainiacs.formtest.DeportesService;
 import projects.brainiacs.formtest.Models.Equipo;
@@ -40,6 +44,9 @@ public class MatchActivity extends AppCompatActivity {
         deportesService = DeportesService.retrofit.create(DeportesService.class);
 
         //Si es un administrador permitimos hacer click, sino no
+
+
+
         if(permisosAdministrador)
         {
             listaPartidos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,11 +57,34 @@ public class MatchActivity extends AppCompatActivity {
 
                     Partido partidoClick = (Partido) arg0.getItemAtPosition(position);
 
-                    Intent intent = new Intent(MatchActivity.this, AddResultActivity.class);
-                    intent.putExtra("idPartido", partidoClick.getIdPartido());
-                    intent.putExtra("equipo1", partidoClick.getEquipo1());
-                    intent.putExtra("equipo2", partidoClick.getEquipo2());
-                    startActivity(intent);
+                    String fechaPartido = partidoClick.getFecha();
+
+                    //Verifica que la fecha no sea pasada
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+                    Date strDate;
+
+                    try
+                    {
+                        strDate = sdf.parse(fechaPartido);
+                        //Si es que la fecha actual, es despues de la fecha que queremos registrar el resultado, lo permitimos
+                        if (new Date().after(strDate))
+                        {
+                            Intent intent = new Intent(MatchActivity.this, AddResultActivity.class);
+                            intent.putExtra("idPartido", partidoClick.getIdPartido());
+                            intent.putExtra("equipo1", partidoClick.getEquipo1());
+                            intent.putExtra("equipo2", partidoClick.getEquipo2());
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Toast.makeText(MatchActivity.this, "No puede agregar resultado de un partido !", Toast.LENGTH_LONG).show();
+                        }
+
+                    } catch (ParseException e)
+                    {
+                        e.printStackTrace();
+                    }
+
 
                 }
 
